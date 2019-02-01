@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -39,5 +38,30 @@ class User extends Authenticatable
     public function programmingLanguage()
     {
         return $this->hasOne('App\ProgrammingLanguage', 'id', 'programming_language_id');
+    }
+
+    public static function filter($country, $age, $id)
+    {
+
+        $id = intval($id);
+        $age = intval($age);
+
+        $users = User::orderBy('id', 'asc');
+        if ($id) {
+            $users->where('id', $id);
+        }
+        if ($country) {
+            $countryId = Country::where('name', $country)->value('id');
+            $users->where('country_id', $countryId);
+        }
+        if ($age) {
+            $currentYear = date('Y');
+            $filterYear = $currentYear-$age;
+            $users->where('birthday', '>=', "$filterYear-01-01");
+            $users->where('birthday', '<=', "$filterYear-12-31");
+        }
+
+
+        return $users;
     }
 }
