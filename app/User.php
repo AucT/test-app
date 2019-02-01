@@ -29,13 +29,15 @@ class User extends Authenticatable
     ];
 
 
+
+
     public function country()
     {
-        return $this->belongsTo('App\Country');
+        return $this->hasOne('App\Country', 'id', 'country_id');
     }
 
     public function programmingLanguage()
     {
-        return $this->belongsTo('App\ProgrammingLanguage');
+        return $this->hasOne('App\ProgrammingLanguage', 'id', 'programming_language_id');
     }
 }
