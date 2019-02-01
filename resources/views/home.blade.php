@@ -19,10 +19,8 @@
                         @if(count($users))
                             <table class="table">
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Name</th>
                                     <th>Country</th>
-                                    <th></th>
                                 </tr>
 
 
@@ -30,15 +28,11 @@
 
                                     <tr>
                                         <td>
-                                            {{ $user->name }}
-                                        </td>
-                                        <td>
-                                            {{ $user->last_name }}
+                                            <a href="{{ route('users.show', ['user' => $user->id]) }}">{{ $user->name }} {{ $user->last_name }}</a>
                                         </td>
                                         <td>
                                             {{ $user->country->name }}
                                         </td>
-                                        <td><a href="{{ route('users.show', ['user' => $user->id]) }}">View</a></td>
                                     </tr>
 
                                 @endforeach
