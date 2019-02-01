@@ -19,9 +19,6 @@ class AlterUsersTable extends Migration
             $table->unsignedInteger('programming_language_id');
             $table->unsignedInteger('country_id');
 
-//            $table->index('programming_language_id');
-//            $table->index('country_id');
-
             $table->foreign('programming_language_id')->references('id')->on('programming_languages');
             $table->foreign('country_id')->references('id')->on('countries');
 
