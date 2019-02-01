@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" requires autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                             <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" requires autofocus>
+                                <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" required autofocus>
 
                                 @if ($errors->has('last_name'))
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                             <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Birthday') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" requires autofocus>
+                                <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required autofocus>
 
                                 @if ($errors->has('birthday'))
                                     <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" requires>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
 
                             <div class="col-md-6">
 
-                                <select name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" id="country">
+                                <select name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" id="country" required>
                                     <option value="">Your country</option>
                                     @foreach($countries as $country)
                                         <option {{ old('country') == $country->id ? 'selected' : '' }} value="{{ $country->id }}">{{ $country->name }}</option>
@@ -95,7 +95,7 @@
 
                             <div class="col-md-6">
 
-                                <select name="programming_language" class="form-control{{ $errors->has('programming_language') ? ' is-invalid' : '' }}" id="programming_language">
+                                <select name="programming_language" class="form-control{{ $errors->has('programming_language') ? ' is-invalid' : '' }}" id="programming_language" required>
                                     <option value="">Your language...</option>
                                 @foreach($programmingLanguages as $programmingLanguage)
                                         <option {{ old('programming_language') == $programmingLanguage->id ? 'selected' : '' }} value="{{ $programmingLanguage->id }}">{{ $programmingLanguage->name }}</option>
@@ -115,7 +115,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" requires>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" requires>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
